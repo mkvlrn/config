@@ -12,8 +12,8 @@
     "custom"
   ],
   "exports": {
-    "./tsconfig-base": "./pkg/tsconfig-base.json",
-    "./tsconfig-next": "./pkg/tsconfig-next.json",
+    "./tsconfig-base": "./pkg/tsconfig.base.json",
+    "./tsconfig-next": "./pkg/tsconfig.next.json",
     "./eslint-base": "./pkg/eslint-base.config.js",
     "./eslint-next": "./pkg/eslint-next.config.js",
     "./prettier": "./pkg/prettier.config.js"
