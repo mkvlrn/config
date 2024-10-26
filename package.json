@@ -1,0 +1,66 @@
+{
+  "name": "@mkvlrn/config",
+  "version": "0.0.0",
+  "description": "Opinionated configs for eslint, prettier, and typescript (tsconfig)",
+  "type": "module",
+  "keywords": [
+    "eslint",
+    "prettier",
+    "typescript",
+    "tsconfig",
+    "config",
+    "custom"
+  ],
+  "exports": {
+    "./tsconfig-base": "./pkg/tsconfig-base.json",
+    "./tsconfig-next": "./pkg/tsconfig-next.json",
+    "./eslint-base": "./pkg/eslint-base.config.js",
+    "./eslint-next": "./pkg/eslint-next.config.js",
+    "./prettier": "./pkg/prettier.config.js"
+  },
+  "files": [
+    "pkg",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "Mike Valeriano <mkvlrn@proton.me>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mkvlrn/config"
+  },
+  "license": "ISC",
+  "scripts": {
+    "bump": "ncu --dep prod,dev,peer -u"
+  },
+  "devDependencies": {
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.8.1",
+    "eslint": "^9.13.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.13.0",
+    "@next/eslint-plugin-next": "^15.0.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-unicorn": "^56.0.0",
+    "eslint-plugin-vitest": "^0.5.4",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "typescript-eslint": "^8.11.0"
+  },
+  "peerDependencies": {
+    "eslint": "^9.13.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  }
+}
