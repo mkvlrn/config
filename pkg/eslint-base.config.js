@@ -15,9 +15,7 @@ import eslintTypescript, { parser } from "typescript-eslint";
 export default [
   {
     name: "typescript parser",
-    languageOptions: {
-      parserOptions: { parser, ecmaVersion: "latest", project: true },
-    },
+    languageOptions: { parserOptions: { parser, ecmaVersion: "latest", project: true } },
   },
 
   {
@@ -155,6 +153,8 @@ export default [
           ignore: ["next-env", "vite-env"],
         },
       ],
+      // default import from node:util is fine
+      "unicorn/import-style": ["error", { styles: { "util": false, "node:util": false } }],
     },
   },
 
