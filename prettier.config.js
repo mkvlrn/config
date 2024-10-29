@@ -1,1 +1,1 @@
-export { default } from "./pkg/prettier.config.js";
+export { default } from "./pkg/prettier/prettier.config.js";

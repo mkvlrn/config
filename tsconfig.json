@@ -1,7 +1,3 @@
 {
-  "extends": "./pkg/tsconfig.base",
-  "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext"
-  }
+  "extends": "./pkg/tsconfig/tsconfig.node"
 }

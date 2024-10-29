@@ -1,23 +1,15 @@
 // @ts-check
+// @ts-expect-error, no types for this package
 import eslint from "@eslint/js";
-// @ts-expect-error, no types for this plugin
+// @ts-expect-error, no types for this package
 import configPrettier from "eslint-config-prettier";
-// @ts-expect-error, no types for this plugin
+// @ts-expect-error, no types for this package
 import pluginImport from "eslint-plugin-import";
-import pluginReact from "eslint-plugin-react";
-// @ts-expect-error, no types for this plugin
-import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginUnicorn from "eslint-plugin-unicorn";
 import pluginVitest from "eslint-plugin-vitest";
-import eslintTypescript, { parser } from "typescript-eslint";
+import eslintTypescript from "typescript-eslint";
 
-/** @type {import("typescript-eslint").ConfigWithExtends[]} */
-export default [
-  {
-    name: "typescript parser",
-    languageOptions: { parserOptions: { parser, ecmaVersion: "latest", project: true } },
-  },
-
+export default eslintTypescript.config(
   {
     name: "eslint recommended",
     ...eslint.configs.recommended,
@@ -159,17 +151,6 @@ export default [
   },
 
   {
-    name: "eslint plugin react and react hooks",
-    files: ["*.tsx"],
-    plugins: { "react": pluginReact, "react-hooks": pluginReactHooks },
-    rules: {
-      ...pluginReact.configs.flat?.recommended.rules,
-      ...pluginReact.configs.flat?.["jsx-runtime"].rules,
-      ...pluginReactHooks,
-    },
-  },
-
-  {
     name: "eslint plugin vitest",
     files: ["*.test.ts", "*.spec.ts", "*.test.tsx", "*.spec.tsx"],
     plugins: { vitest: pluginVitest },
@@ -180,4 +161,4 @@ export default [
     name: "disable rules that are controlled by prettier",
     ...configPrettier,
   },
-];
+);

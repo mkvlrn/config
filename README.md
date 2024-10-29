@@ -16,13 +16,33 @@ yarn add typescript eslint prettier @mkvlrn/config -D
 
 then import the configurations from the package on your config files:
 
+### eslint
+
+three eslint flat configs are exposed:
+
+- `eslint-node` for whatever node project (inlcuding nestjs) without react
+- `eslint-vite` for vite/react projects
+- `eslint-next` for nextjs projects (which requires some special rules)
+
+**all** rulesets/plugins are installed with the package, it's a flat config, so it's fancy that way
+
+installing eslint separately is **required**
+
+create/edit your configuration file as below:
+
 <details>
 <summary><code>eslint.config.js</code></summary>
 
-for base node, nest, or vite/react projects:
+for simple node or nestjs projects (pretty much anything that doesn't use react):
 
 ```js
-export { default } from "@mkvlrn/config/eslint-base";
+export { default } from "@mkvlrn/config/eslint-node";
+```
+
+for vite/react projects:
+
+```js
+export { default } from "@mkvlrn/config/eslint-vite";
 ```
 
 for nextjs projects:
@@ -34,9 +54,9 @@ export { default } from "@mkvlrn/config/eslint-next";
 if you want to add rules to the config, you export it as default while adding your rules to the config array:
 
 ```js
-import { default as base } from "@mkvlrn/config/eslint-base";
+import base from "@mkvlrn/config/eslint-node";
 
-export default {
+export default [
   ...base,
 
   rules: {
@@ -45,10 +65,20 @@ export default {
     // or ignores
     "ignores": ["dist"],
   },
-};
+];
 ```
 
 </details>
+
+### prettier
+
+a packaged prettier configuration with some opinionated defaults that works in any kind of typescript project
+
+also brings tailwindcss support (order of classes) and imports sorting, both via plugins
+
+installing prettier separately is **required**
+
+create/edit your configuration file as below:
 
 <details>
 <summary><code>prettier.config.js</code></summary>
@@ -62,7 +92,7 @@ export { default } from "@mkvlrn/config/prettier";
 and if you want to modify any of the rules, you can do so:
 
 ```js
-import { default as base } from "@mkvlrn/config/prettier";
+import base from "@mkvlrn/config/prettier";
 
 export default {
   ...base,
@@ -74,14 +104,44 @@ export default {
 
 </details>
 
+### typescript (tsconfig)
+
+three typescript configurations are exposed:
+
+- `tsconfig-node` for whatever node project (inlcuding nestjs) without react
+- `tsconfig-vite` for vite/react projects
+- `tsconfig-next` for nextjs projects (which requires some special rules)
+
+anything related to files needs to be set: `rootDir`, `outDir`, `baseUrl`, `paths`, etc
+
+this prevents path confusion because the "original" tsconfig will be in `node_modules`
+
+defaults to `noemit` because I use swc to build my stuff so you might want to change that if you still want to use `tsc` (a simple `tsc --noEmit` will work)
+
+installing typescript separately is **required**
+
+create/edit your configuration file as below:
+
 <details>
 <summary><code>tsconfig.json</code></summary>
 
-for base node, nest, or vite/react projects:
+for simple node or nestjs projects (pretty much anything that doesn't use react):
 
 ```jsonc
 {
-  "extends": "@mkvlrn/config/tsconfig-base",
+  "extends": "@mkvlrn/config/tsconfig-node",
+  "compilerOptions": {
+    // add your custom rules here
+    "noEmit": false,
+  },
+}
+```
+
+for vite/react projects:
+
+```jsonc
+{
+  "extends": "@mkvlrn/config/tsconfig-vite",
   "compilerOptions": {
     // add your custom rules here
     "noUncheckedIndexedAccess": true,
@@ -102,33 +162,3 @@ for nextjs projects:
 ```
 
 </details>
-
-## details
-
-### eslint
-
-two eslint flat configs: one for whatever node project (node, nest, react with vite, etc) and another for nextjs projects (which requires some special rules)
-
-ALL rulesets/plugins are installed with the package, it's a flat config, so it's fancy that way
-
-installing eslint separately is **required**
-
-### prettier
-
-a packaged prettier configuration with some opinionated defaults
-
-also brings tailwindcss support (order of classes) and imports sorting, both via plugins
-
-installing prettier separately is **required**
-
-### typescript (tsconfig)
-
-a packaged `tsconfig.json` with some opinionated defaults for both base node (which includes nest and vite/react projects) and nextjs projects
-
-anything related to files except needs to be set: `rootDir`, `outDir`, `baseUrl`, `paths`, etc
-
-this prevents path confusion because the "original" tsconfig will be in `node_modules`
-
-defaults to `noemit` because I use esbuild so you might want to change that if you still want to use `tsc`
-
-installing typescript separately is **required**

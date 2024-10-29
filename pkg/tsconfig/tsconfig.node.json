@@ -1,12 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "allowJs": true,
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
     "lib": ["Dom", "DOM.Iterable", "ESNext", "ESNext.Decorators"],
     "module": "ESNext",
     "moduleDetection": "force",

@@ -12,11 +12,13 @@
     "custom"
   ],
   "exports": {
-    "./tsconfig-base": "./pkg/tsconfig.base.json",
-    "./tsconfig-next": "./pkg/tsconfig.next.json",
-    "./eslint-base": "./pkg/eslint-base.config.js",
-    "./eslint-next": "./pkg/eslint-next.config.js",
-    "./prettier": "./pkg/prettier.config.js"
+    "./tsconfig-node": "./pkg/tsconfig/tsconfig.node.json",
+    "./tsconfig-vite": "./pkg/tsconfig/tsconfig.vite.json",
+    "./tsconfig-next": "./pkg/tsconfig/tsconfig.next.json",
+    "./eslint-node": "./pkg/eslint/eslint-node.config.js",
+    "./eslint-vite": "./pkg/eslint/eslint-vite.config.js",
+    "./eslint-next": "./pkg/eslint/eslint-next.config.js",
+    "./prettier": "./pkg/prettier/prettier.config.js"
   },
   "files": [
     "pkg",
@@ -38,7 +40,6 @@
     "bump": "ncu --dep prod,dev,peer -u"
   },
   "devDependencies": {
-    "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.8.1",
     "eslint": "^9.13.0",
     "prettier": "^3.3.3",
@@ -53,8 +54,10 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
     "eslint-plugin-unicorn": "^56.0.0",
     "eslint-plugin-vitest": "^0.5.4",
+    "globals": "^15.11.0",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "typescript-eslint": "^8.11.0"
   },
