@@ -59,11 +59,13 @@ import base from "@mkvlrn/config/eslint-node";
 export default [
   ...base,
 
-  rules: {
-    // add your custom rules here
-    "no-console": "error",
+  {
+    rules: {
+      // add your custom rules here
+      "no-console": "error",
+    },
     // or ignores
-    "ignores": ["dist"],
+    ignores: ["dist"],
   },
 ];
 ```
