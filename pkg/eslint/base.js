@@ -1,5 +1,4 @@
 // @ts-check
-// @ts-expect-error, no types for this package
 import eslint from "@eslint/js";
 // @ts-expect-error, no types for this package
 import configPrettier from "eslint-config-prettier";
