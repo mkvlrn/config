@@ -24,7 +24,6 @@ export default eslintTypescript.config(
   {
     name: "eslint plugin react and hooks",
     plugins: {
-      // @ts-expect-error, TODO - figure out this error; works fine but complains
       "react": pluginReact,
       "react-hooks": pluginReactHooks,
     },

@@ -2,8 +2,6 @@
 import eslint from "@eslint/js";
 // @ts-expect-error, no types for this package
 import configPrettier from "eslint-config-prettier";
-// @ts-expect-error, no types for this package
-import pluginImport from "eslint-plugin-import";
 import pluginUnicorn from "eslint-plugin-unicorn";
 import pluginVitest from "eslint-plugin-vitest";
 import eslintTypescript from "typescript-eslint";
@@ -100,27 +98,6 @@ export default eslintTypescript.config(
           ],
         },
       ],
-    },
-  },
-
-  {
-    name: "eslint plugin import",
-    plugins: { import: pluginImport },
-    settings: { "import/resolver": { typescript: {} } },
-    rules: {
-      ...pluginImport.flatConfigs.recommended.rules,
-      ...pluginImport.flatConfigs.typescript.rules,
-      ...pluginImport.flatConfigs.react.rules,
-      // allows for the use of devDependencies in test files
-      "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
-      // doesn't require default exports on files with single exports
-      "import/prefer-default-export": "off",
-      // another not-so-brilliant rule
-      "import/no-named-as-default": "off",
-      // another not-so-brilliant rule redux
-      "import/no-named-as-default-member": "off",
-      // don't know about this one either, chief
-      "import/namespace": "off",
     },
   },
 

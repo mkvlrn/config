@@ -2,7 +2,6 @@
 import pluginReact from "eslint-plugin-react";
 // @ts-expect-error, no types for this package
 import pluginReactHooks from "eslint-plugin-react-hooks";
-// @ts-expect-error, no types for this package
 import pluginRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 import eslintTypescript, { parser } from "typescript-eslint";
@@ -24,7 +23,6 @@ export default eslintTypescript.config(
   {
     name: "eslint plugin react, hooks, and refresh",
     plugins: {
-      // @ts-expect-error, TODO - figure out this error; works fine but complains
       "react": pluginReact,
       "react-hooks": pluginReactHooks,
       "react-refresh": pluginRefresh,
