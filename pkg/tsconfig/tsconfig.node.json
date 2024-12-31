@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
     "allowJs": true,
+    "customConditions": ["development"],
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
