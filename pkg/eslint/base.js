@@ -123,6 +123,8 @@ export default eslintTypescript.config(
       ],
       // default import from node:util is fine
       "unicorn/import-style": ["error", { styles: { "util": false, "node:util": false } }],
+      // no need to hoist arrow functions to the top (testing thanks you)
+      "unicorn/consistent-function-scoping": ["error", { checkArrowFunctions: false }],
     },
   },
 
