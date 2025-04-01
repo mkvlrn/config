@@ -72,6 +72,28 @@ export default eslintTypescript.config(
   },
 
   {
+    // only needed while https://github.com/nodejs/node/issues/51292 is still problematic
+    // this is a temporary workaround for the issue, although it is now closed and the node team
+    // has stated that they will not be fixing it - this is stupid, but yeah
+    // TODO - remove this rule when it's fixed somehow, but probably never
+    name: "allow floating promises from node:test's describe and test",
+    rules: {
+      "@typescript-eslint/no-floating-promises": [
+        "error",
+        {
+          allowForKnownSafeCalls: [
+            {
+              from: "package",
+              name: ["describe", "test", "suite", "it"],
+              package: "node:test",
+            },
+          ],
+        },
+      ],
+    },
+  },
+
+  {
     // by default it assumes numbers won't be properly cast to strings
     name: "allow numbers in template literals",
     rules: {
