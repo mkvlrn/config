@@ -31,29 +31,29 @@ installing eslint separately is **required**
 create/edit your configuration file as below:
 
 <details>
-<summary><code>eslint.config.js</code></summary>
+<summary><code>eslint.config.ts</code></summary>
 
 for simple node or nestjs projects (pretty much anything that doesn't use react):
 
-```js
+```ts
 export { default } from "@mkvlrn/config/eslint-node";
 ```
 
 for vite/react projects:
 
-```js
+```ts
 export { default } from "@mkvlrn/config/eslint-vite";
 ```
 
 for nextjs projects:
 
-```js
+```ts
 export { default } from "@mkvlrn/config/eslint-next";
 ```
 
 if you want to add rules to the config, you export it as default while adding your rules to the config array:
 
-```js
+```ts
 import base from "@mkvlrn/config/eslint-node";
 
 export default [
@@ -117,8 +117,6 @@ three typescript configurations are exposed:
 anything related to files needs to be set: `rootDir`, `outDir`, `baseUrl`, `paths`, etc
 
 this prevents path confusion because the "original" tsconfig will be in `node_modules`
-
-defaults to `noemit` because I use swc to build my stuff so you might want to change that if you still want to use `tsc` (a simple `tsc --noEmit` will work)
 
 installing typescript separately is **required**
 

@@ -1,3 +1,6 @@
 {
-  "extends": "./pkg/tsconfig/tsconfig.node"
+  "extends": "./pkg/tsconfig/tsconfig.node",
+  "compilerOptions": {
+    "noEmit": true
+  }
 }

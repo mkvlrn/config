@@ -1,6 +1,5 @@
 // @ts-check
 import pluginReact from "eslint-plugin-react";
-// @ts-expect-error, no types for this package
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
@@ -28,8 +27,8 @@ export default eslintTypescript.config(
       "react-refresh": pluginRefresh,
     },
     rules: {
-      ...pluginReact.configs.flat?.recommended.rules,
-      ...pluginReact.configs.flat?.["jsx-runtime"].rules,
+      ...pluginReact.configs.flat.recommended?.rules,
+      ...pluginReact.configs.flat["jsx-runtime"]?.rules,
       ...pluginReactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     },

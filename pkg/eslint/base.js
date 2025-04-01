@@ -1,9 +1,7 @@
 // @ts-check
 import eslint from "@eslint/js";
-// @ts-expect-error, no types for this package
 import configPrettier from "eslint-config-prettier";
 import pluginUnicorn from "eslint-plugin-unicorn";
-import pluginVitest from "eslint-plugin-vitest";
 import eslintTypescript from "typescript-eslint";
 
 export default eslintTypescript.config(
@@ -82,30 +80,10 @@ export default eslintTypescript.config(
   },
 
   {
-    // only needed while https://github.com/nodejs/node/issues/51292 is open
-    // TODO - remove this rule when it's fixed
-    name: "allow floating promises from node:test's describe and test",
-    rules: {
-      "@typescript-eslint/no-floating-promises": [
-        "error",
-        {
-          allowForKnownSafeCalls: [
-            {
-              from: "package",
-              name: ["describe", "test", "suite", "it"],
-              package: "node:test",
-            },
-          ],
-        },
-      ],
-    },
-  },
-
-  {
     name: "eslint plugin unicorn",
     plugins: { unicorn: pluginUnicorn },
     rules: {
-      ...pluginUnicorn.configs["flat/recommended"].rules,
+      ...pluginUnicorn.configs.recommended.rules,
       // null is fine
       "unicorn/no-null": "off",
       // some names come from external sources, gotta allow those
@@ -126,13 +104,6 @@ export default eslintTypescript.config(
       // no need to hoist arrow functions to the top (testing thanks you)
       "unicorn/consistent-function-scoping": ["error", { checkArrowFunctions: false }],
     },
-  },
-
-  {
-    name: "eslint plugin vitest",
-    files: ["*.test.ts", "*.spec.ts", "*.test.tsx", "*.spec.tsx"],
-    plugins: { vitest: pluginVitest },
-    rules: { ...pluginVitest.configs.recommended.rules },
   },
 
   {

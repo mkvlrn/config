@@ -1,8 +1,7 @@
 // @ts-check
-// @ts-expect-error, no types for this package
+// @ts-expect-error - no types for this plugin
 import pluginNext from "@next/eslint-plugin-next";
 import pluginReact from "eslint-plugin-react";
-// @ts-expect-error, no types for this package
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import eslintTypescript, { parser } from "typescript-eslint";
@@ -28,8 +27,8 @@ export default eslintTypescript.config(
       "react-hooks": pluginReactHooks,
     },
     rules: {
-      ...pluginReact.configs.flat?.recommended.rules,
-      ...pluginReact.configs.flat?.["jsx-runtime"].rules,
+      ...pluginReact.configs.flat.recommended?.rules,
+      ...pluginReact.configs.flat["jsx-runtime"]?.rules,
       ...pluginReactHooks.configs.recommended.rules,
     },
   },

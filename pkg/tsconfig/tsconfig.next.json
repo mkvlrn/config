@@ -2,9 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.node.json",
   "compilerOptions": {
-    "esModuleInterop": true,
     "incremental": true,
     "jsx": "preserve",
+    "lib": ["Dom", "DOM.Iterable", "ESNext"],
     "plugins": [{ "name": "next" }]
   }
 }
