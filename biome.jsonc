@@ -1,3 +1,18 @@
 {
-  "extends": ["pkg/biome.jsonc"]
+  "extends": ["pkg/biome.jsonc"],
+  "overrides": [
+    {
+      "includes": ["pkg/commitlint.js"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            "noSecrets": "off"
+          },
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
 }

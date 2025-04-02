@@ -13,7 +13,7 @@
   ],
   "exports": {
     "./biome": "./pkg/biome.jsonc",
-    "./commitlint": "./pkg/commitlint.json",
+    "./commitlint": "./pkg/commitlint.js",
     "./tsconfig-node": "./pkg/tsconfig.node.json",
     "./tsconfig-vite": "./pkg/tsconfig.vite.json",
     "./tsconfig-next": "./pkg/tsconfig.next.json"
