@@ -1,0 +1,91 @@
+{
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": ["**/*", "!build/**", "!node_modules/**", "!dist/**", "!coverage/**"]
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedAttributes": "on",
+        "useSortedKeys": "off", // off for now, it's really wonky
+        "useSortedProperties": "on"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "lineWidth": 100,
+    "useEditorconfig": true
+  },
+  "linter": {
+    "domains": {
+      "test": "all"
+    },
+    "enabled": true,
+    "rules": {
+      "a11y": "on",
+      "complexity": "on",
+      "correctness": "on",
+      "nursery": "on",
+      "performance": "on",
+      "security": "on",
+      "style": "on",
+      "suspicious": "on"
+    }
+  },
+  "overrides": [
+    {
+      // dont sort keys in these because they're usually in a specific order for readability
+      "includes": ["**/biome.json", "**/biome.jsonc", "**/package.json", "**/tsconfig.json"],
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      }
+    },
+    {
+      // main.ts can console stuff out
+      "includes": ["src/main.ts"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": {
+              "level": "off"
+            }
+          }
+        }
+      }
+    },
+    {
+      // some/most config files on root export defaults from them
+      "includes": ["**/*.config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      // test files and scripts can use node:modules
+      "includes": ["src/**/*.test.ts", "scripts/*.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noNodejsModules": "off"
+          }
+        }
+      }
+    }
+  ]
+}

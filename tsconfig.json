@@ -1,6 +1,0 @@
-{
-  "extends": "./pkg/tsconfig/tsconfig.node",
-  "compilerOptions": {
-    "noEmit": true
-  }
-}

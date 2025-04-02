@@ -1,24 +1,22 @@
 {
   "name": "@mkvlrn/config",
   "version": "0.0.0",
-  "description": "Opinionated configs for eslint, prettier, and typescript (tsconfig)",
+  "description": "Opinionated configs for biome, commitlint, and typescript (tsconfig)",
   "type": "module",
   "keywords": [
-    "eslint",
-    "prettier",
+    "biome",
+    "commitlint",
     "typescript",
     "tsconfig",
     "config",
     "custom"
   ],
   "exports": {
-    "./tsconfig-node": "./pkg/tsconfig/tsconfig.node.json",
-    "./tsconfig-vite": "./pkg/tsconfig/tsconfig.vite.json",
-    "./tsconfig-next": "./pkg/tsconfig/tsconfig.next.json",
-    "./eslint-node": "./pkg/eslint/eslint-node.config.js",
-    "./eslint-vite": "./pkg/eslint/eslint-vite.config.js",
-    "./eslint-next": "./pkg/eslint/eslint-next.config.js",
-    "./prettier": "./pkg/prettier/prettier.config.js"
+    "./biome": "./pkg/biome.jsonc",
+    "./commitlint": "./pkg/commitlint.json",
+    "./tsconfig-node": "./pkg/tsconfig.node.json",
+    "./tsconfig-vite": "./pkg/tsconfig.vite.json",
+    "./tsconfig-next": "./pkg/tsconfig.next.json"
   },
   "files": [
     "pkg",
@@ -40,29 +38,6 @@
     "bump": "ncu --dep prod,dev,peer -u"
   },
   "devDependencies": {
-    "@types/node": "^22.13.14",
-    "eslint": "^9.23.0",
-    "jiti": "^2.4.2",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
-  },
-  "dependencies": {
-    "@eslint/js": "^9.23.0",
-    "@next/eslint-plugin-next": "^15.2.4",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
-    "eslint-config-prettier": "^10.1.1",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "eslint-plugin-unicorn": "^58.0.0",
-    "globals": "^16.0.0",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript-eslint": "^8.29.0"
-  },
-  "peerDependencies": {
-    "eslint": "^9.23.0",
-    "jiti": "^2.4.2",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
+    "@biomejs/biome": "https://pkg.pr.new/biomejs/biome/@biomejs/biome@241a440"
   }
 }
