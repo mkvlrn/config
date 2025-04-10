@@ -13,7 +13,9 @@
       "source": {
         "organizeImports": "on",
         "useSortedAttributes": "on",
-        "useSortedKeys": "off", // off for now, it's really wonky
+        // TODO: check later
+        // off for now, it's really wonky
+        "useSortedKeys": "off",
         "useSortedProperties": "on"
       }
     }
@@ -39,5 +41,19 @@
       "style": "on",
       "suspicious": "on"
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["*"],
+      "linter": {
+        "rules": {
+          "nursery": {
+            // TODO: check later
+            // not working properly, flags stuff from node_modules as unresolved
+            "noUnresolvedImports": "off"
+          }
+        }
+      }
+    }
+  ]
 }

@@ -5,11 +5,10 @@
       "includes": ["pkg/commitlint.js"],
       "linter": {
         "rules": {
-          "nursery": {
-            "noSecrets": "off"
-          },
           "style": {
-            "noDefaultExport": "off"
+            "noDefaultExport": {
+              "level": "off"
+            }
           }
         }
       }

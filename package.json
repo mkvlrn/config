@@ -38,6 +38,6 @@
     "bump": "ncu --dep prod,dev,peer -u"
   },
   "devDependencies": {
-    "@biomejs/biome": "https://pkg.pr.new/biomejs/biome/@biomejs/biome@241a440"
+    "@biomejs/biome": "https://pkg.pr.new/biomejs/biome/@biomejs/biome@2d699e3"
   }
 }
