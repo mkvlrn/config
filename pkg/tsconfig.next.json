@@ -2,6 +2,8 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.node.json",
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "incremental": true,
     "jsx": "preserve",
     "lib": ["Dom", "DOM.Iterable", "ESNext"],

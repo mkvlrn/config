@@ -30,6 +30,8 @@
 		"enabled": true,
 		"formatWithErrors": true,
 		"lineWidth": 100,
+		"indentStyle": "space",
+		"indentWidth": 2,
 		"useEditorconfig": true
 	},
 	"linter": {
